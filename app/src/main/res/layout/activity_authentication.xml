@@ -24,7 +24,7 @@ android:src="@drawable/logo" />
     android:textColor="#1E90FF"
     android:layout_below="@id/imageViewLogo"
     android:layout_centerHorizontal="true"
-    android:layout_marginBottom="16dp"/>
+    android:layout_marginBottom="32dp"/>
 
 <Button
 android:id="@+id/buttonSignUp"
