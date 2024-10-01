@@ -1,22 +1,24 @@
-package com.northcoders.makemydayapp;
+package com.northcoders.makemydayapp.model;
 
 public class User {
+
     private String name;
-    private String surname;
+    private String lastname;
     private String username;
     private String email;
     private String password;
 
-    // Constructor to initialize the fields
-    public User(String name, String surname, String username, String email, String password) {
+    public User() {
+    }
+
+    public User(String name, String lastname, String username, String email, String password) {
         this.name = name;
-        this.surname = surname;
+        this.lastname = lastname;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    // Getters and setters for each field (Optional)
     public String getName() {
         return name;
     }
@@ -25,12 +27,12 @@ public class User {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {
@@ -57,4 +59,4 @@ public class User {
         this.password = password;
     }
 }
-}
+
