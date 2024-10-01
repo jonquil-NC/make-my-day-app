@@ -10,14 +10,17 @@ import com.northcoders.makemydayapp.ui.signupactivity.SignUpActivity;
 
 public class HomePageAuthenticationClickHandler {
 
-    private Context context;
-    private MainActivityViewModel viewModel;
+    private final Context context;
+    private final MainActivityViewModel viewModel;
+    private final User credentials;
 
-    public HomePageAuthenticationClickHandler(Context context, MainActivityViewModel viewModel ) {
+    public HomePageAuthenticationClickHandler(User credentials, Context context, MainActivityViewModel viewModel) {
         this.viewModel = viewModel;
         this.context = context;
+        this.credentials = credentials;
     }
-    public void onSignupClick(View view){
+
+    public void onSignupClick(View view) {
         Intent intent = new Intent(this.context, SignUpActivity.class);
         this.context.startActivity(intent);
     }
