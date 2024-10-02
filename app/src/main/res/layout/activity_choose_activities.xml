@@ -50,7 +50,7 @@
         android:text="@string/parks"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -59,7 +59,8 @@
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.315" />
+        app:layout_constraintVertical_bias="0.315"
+        app:rippleColor="#feb06a"/>
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_restaurants"
@@ -71,7 +72,7 @@
         android:text="@string/restaurants"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -80,7 +81,8 @@
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.314"
+        app:rippleColor="#feb06a"/>
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_wellness_experiences"
@@ -92,7 +94,7 @@
         android:text="@string/welness_experiences"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -101,7 +103,8 @@
         app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintVertical_bias="0.43"
+        app:rippleColor="#feb06a"/>
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_landmarks"
@@ -113,7 +116,7 @@
         android:text="@string/landmarks"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -122,7 +125,8 @@
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.551"
+        app:rippleColor="#feb06a" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_bars"
@@ -134,7 +138,7 @@
         android:text="@string/bars"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -143,7 +147,8 @@
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.551"
+        app:rippleColor="#feb06a" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_sporting_events"
@@ -155,7 +160,7 @@
         android:text="@string/sporting_events"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -164,7 +169,8 @@
         app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintVertical_bias="0.673"
+        app:rippleColor="#feb06a" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_live_events"
@@ -176,7 +182,7 @@
         android:text="@string/live_events"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -185,7 +191,8 @@
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintVertical_bias="0.799"
+        app:rippleColor="#feb06a" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_concerts"
@@ -197,7 +204,7 @@
         android:text="@string/concerts"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:checkedChipBackgroundColor="@color/feb06a"
+        app:checkedChipBackgroundColor="#feb06a"
         app:chipCornerRadius="20dp"
         app:chipStrokeColor="@color/white"
         app:chipStrokeWidth="1dp"
@@ -206,7 +213,8 @@
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintVertical_bias="0.799"
+        app:rippleColor="#feb06a" />
 
     <Button
         android:id="@+id/button_submit"
@@ -214,7 +222,7 @@
         android:layout_height="71dp"
         android:backgroundTint="#84c885"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textColor="#2c2c2c"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
