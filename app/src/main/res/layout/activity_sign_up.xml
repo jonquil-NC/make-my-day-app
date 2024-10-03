@@ -63,7 +63,7 @@
                     android:layout_marginEnd="20dp"
 
                     android:hint="Enter your First Name"
-                    android:text="@={userToAdd.name}"
+                    android:text="@={userToAdd.firstname}"
 
 
                     app:layout_constraintEnd_toEndOf="parent"
@@ -89,23 +89,6 @@
                     app:layout_constraintTop_toBottomOf="@id/editTextName"
                     app:layout_constraintVertical_chainStyle="packed" />
 
-                <EditText
-                    android:id="@+id/editTextUsername"
-
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="28dp"
-
-                    android:hint="Enter your username"
-                    android:text="@={userToAdd.username}"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextSurname"
-                    app:layout_constraintVertical_chainStyle="packed" />
 
                 <EditText
                     android:id="@+id/editTextEmail"
@@ -122,7 +105,7 @@
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextUsername"
+                    app:layout_constraintTop_toBottomOf="@id/editTextSurname"
                     app:layout_constraintVertical_chainStyle="packed" />
 
 

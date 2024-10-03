@@ -22,10 +22,16 @@ public class HomePageAuthenticationClickHandler {
 
     public void onSignupClick(View view) {
         Intent intent = new Intent(this.context, SignUpActivity.class);
+
+        this.viewModel.getUserDetails(credentials);
+
+
         this.context.startActivity(intent);
     }
 
     public void onLoginClick(View view) {
+
+
 
     }
 

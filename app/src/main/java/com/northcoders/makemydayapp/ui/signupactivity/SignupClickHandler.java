@@ -26,7 +26,7 @@ public class SignupClickHandler {
 
 
     public void onSignupNewUser(View view){
-        if(StringUtils.isAnyEmpty(this.user.getEmail(), this.user.getLastname(), this.user.getUsername(), this.user.getPassword())) {
+        if(StringUtils.isAnyEmpty(this.user.getEmail(), this.user.getLastname(), this.user.getPassword())) {
             Toast.makeText(context, "First name, last name, email, username and password cannot be empty", Toast.LENGTH_SHORT)
                     .show();
             return;
@@ -36,7 +36,7 @@ public class SignupClickHandler {
 
         // String name, String lastname, String username, String email, String password
         User userToAdd = new User(
-                user.getName(), user.getLastname(), user.getUsername(), user.getEmail(), user.getPassword()
+                user.getFirstname(), user.getLastname(), user.getEmail(), user.getPassword()
         );
 
         viewModel.addNewUser(userToAdd);

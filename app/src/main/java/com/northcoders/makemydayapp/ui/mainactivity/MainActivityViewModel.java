@@ -22,8 +22,8 @@ public class MainActivityViewModel extends AndroidViewModel{
         this.eventRepository = new EventRepository(application);
     }
 
-    public LiveData<User> getUserDetails(String username, String password){
-        return userRepository.getUserDetailsThroughAuthentication(username, password);
+    public LiveData<User> getUserDetails(User credentials){
+        return userRepository.getUserDetailsThroughAuthentication(credentials);
     }
 
     public void addNewUser(User user){

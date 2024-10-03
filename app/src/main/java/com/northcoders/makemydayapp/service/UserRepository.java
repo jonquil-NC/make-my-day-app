@@ -22,9 +22,10 @@ public class UserRepository {
     }
 
 
-    public MutableLiveData<User> getUserDetailsThroughAuthentication(String username, String password) {
+    public MutableLiveData<User> getUserDetailsThroughAuthentication(User credentials) {
         UserApiService userApiService = RetrofitInstance.getUserApiService();
-        Call<User> call = userApiService.getUsersByCredentials(username, password);
+
+        Call<User> call = userApiService.getUsersByCredentials(credentials);
 
         call.enqueue(new Callback<User>() {
             @Override

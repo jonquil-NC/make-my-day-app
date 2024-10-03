@@ -2,29 +2,27 @@ package com.northcoders.makemydayapp.model;
 
 public class User {
 
-    private String name;
+    private String firstname;
     private String lastname;
-    private String username;
     private String email;
     private String password;
 
     public User() {
     }
 
-    public User(String name, String lastname, String username, String email, String password) {
-        this.name = name;
+    public User(String firstname, String lastname, String email, String password) {
+        this.firstname = firstname;
         this.lastname = lastname;
-        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastname() {
@@ -33,14 +31,6 @@ public class User {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
