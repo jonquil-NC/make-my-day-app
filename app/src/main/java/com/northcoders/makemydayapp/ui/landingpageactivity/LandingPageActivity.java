@@ -2,16 +2,10 @@ package com.northcoders.makemydayapp.ui.landingpageactivity;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.northcoders.makemydayapp.R;
-import com.northcoders.makemydayapp.databinding.ActivityAuthenticationBinding;
 import com.northcoders.makemydayapp.model.User;
-import com.northcoders.makemydayapp.ui.homepageactivity.HomePageAuthenticationClickHandler;
 
 public class LandingPageActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.northcoders.makemydayapp.ui.homepageactivity;
+package com.northcoders.makemydayapp.ui.authenticationactivity;
 
 import android.os.Bundle;
 
@@ -9,34 +9,34 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.northcoders.makemydayapp.R;
-import com.northcoders.makemydayapp.databinding.ActivityAuthenticationBinding;
+import com.northcoders.makemydayapp.databinding.ActivitySingInBinding;
 import com.northcoders.makemydayapp.model.User;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
-public class HomePageActivity extends AppCompatActivity implements LifecycleOwner {
+public class SignInActivity extends AppCompatActivity implements LifecycleOwner {
 
-    private ActivityAuthenticationBinding authenticationBinding;
+    private ActivitySingInBinding signinBinding;
     private User user;
-    private HomePageAuthenticationClickHandler clickHandler;
+    private AuthenticationClickHandler clickHandler;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_authentication);
+        setContentView(R.layout.activity_sing_in);
 
-        this.authenticationBinding = DataBindingUtil.setContentView(
-                this, R.layout.activity_authentication
+        this.signinBinding = DataBindingUtil.setContentView(
+                this, R.layout.activity_sing_in
         );
 
         MainActivityViewModel viewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
         this.user = new User();
-        this.clickHandler = new HomePageAuthenticationClickHandler(this.user, this, viewModel);
+        this.clickHandler = new AuthenticationClickHandler(this.user, this, viewModel);
 
-        this.authenticationBinding.setClickHandler(this.clickHandler);
-        this.authenticationBinding.setCredentials(this.user);
+        this.signinBinding.setClickHandler(this.clickHandler);
+        this.signinBinding.setCredentials(this.user);
 
 
     }

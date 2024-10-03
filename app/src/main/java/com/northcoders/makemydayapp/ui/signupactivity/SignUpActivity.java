@@ -33,8 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
         this.user = new User();
         this.signupClickHandler = new SignupClickHandler(this.user,this, viewModel);
 
-        this.signUpActivityBinding.setUserToAdd(this.user);
-        this.signUpActivityBinding.setSignupClickHandler(this.signupClickHandler);
+        this.signUpActivityBinding.setUser(this.user);
+        this.signUpActivityBinding.setClickHandler(this.signupClickHandler);
 
     }
 }

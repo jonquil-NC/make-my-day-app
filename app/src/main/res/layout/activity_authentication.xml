@@ -12,7 +12,7 @@
 
         <variable
             name="clickHandler"
-            type="com.northcoders.makemydayapp.ui.homepageactivity.HomePageAuthenticationClickHandler" />
+            type="com.northcoders.makemydayapp.ui.authenticationactivity.AuthenticationClickHandler" />
     </data>
 
 
