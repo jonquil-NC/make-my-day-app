@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MakeMyDayApp</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="parks">Parks</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="welness_experiences">Welness Experiences</string>
+    <string name="landmarks">Landmarks</string>
+    <string name="bars">Bars</string>
+    <string name="sporting_events">Sporting Events</string>
+    <string name="live_events">Live Events</string>
+    <string name="concerts">Concerts</string>
+    <string name="submit">Submit</string>
 </resources>

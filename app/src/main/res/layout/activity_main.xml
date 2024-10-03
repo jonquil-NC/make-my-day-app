@@ -6,15 +6,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mainactivity.MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/main_page_background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/button_sign_up"
+        android:layout_width="126dp"
+        android:layout_height="66dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#f2f2f2"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sign_up"
+        android:textColor="#2c2c2c"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.224"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+    <Button
+        android:id="@+id/button_sign_in"
+        android:layout_width="126dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#f2f2f2"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sign_in"
+        android:textColor="#2c2c2c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

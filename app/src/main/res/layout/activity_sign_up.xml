@@ -1,166 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sing_up_background"
+    tools:context=".signing.SignUpActivity">
 
-    <data>
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="328dp"
+        android:layout_height="51dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="First Name"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
 
-        <variable
-            name="userToAdd"
-            type="com.northcoders.makemydayapp.model.User" />
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="328dp"
+        android:layout_height="51dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="Last Name"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388" />
 
-        <variable
-            name="signupClickHandler"
-            type="com.northcoders.makemydayapp.ui.signupactivity.SignupClickHandler" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="328dp"
+        android:layout_height="51dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533" />
 
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="328dp"
+        android:layout_height="51dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.667" />
 
-    </data>
+    <Button
+        android:id="@+id/button_sign_up"
+        android:layout_width="170dp"
+        android:layout_height="71dp"
+        android:backgroundTint="#feb06a"
+        android:text="Sign Up"
+        android:textColor="#2c2c2c"
+        android:textSize="24sp"
+        android:fontFamily="@font/montserrat_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/header_title"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/design_default_color_primary"
-            android:text="User Sign Up"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="620dp"
-            android:layout_margin="10dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="15dp"
-            app:flow_verticalAlign="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_title"
-            app:layout_constraintVertical_chainStyle="packed">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cardCostraint"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-
-                    android:hint="Enter your First Name"
-                    android:text="@={userToAdd.firstname}"
-
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imageView"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    tools:layout_editor_absoluteY="250dp" />
-
-                <EditText
-                    android:id="@+id/editTextSurname"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="28dp"
-
-                    android:hint="Enter your Lastname"
-                    android:text="@={userToAdd.lastname}"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextName"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-
-                <EditText
-                    android:id="@+id/editTextEmail"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="28dp"
-
-                    android:hint="Enter your email"
-                    android:inputType="textEmailAddress"
-                    android:text="@={userToAdd.email}"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextSurname"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-
-                <EditText
-                    android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:hint="Enter the password"
-                    android:text="@{userToAdd.password}"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextEmail"
-                    app:layout_constraintVertical_chainStyle="packed"
-
-                    />
-
-                <Button
-                    android:id="@+id/buttonSubmit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp"
-
-                    android:onClick="@{signupClickHandler::onSignupNewUser}"
-                    android:text="Submit"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-
-                    android:textStyle="bold"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editTextPassword"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="269dp"
-                    android:layout_height="227dp"
-                    app:srcCompat="@drawable/logo"
-                    tools:layout_editor_absoluteX="71dp"
-                    tools:layout_editor_absoluteY="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
