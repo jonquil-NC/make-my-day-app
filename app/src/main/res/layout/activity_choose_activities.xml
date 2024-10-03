@@ -32,6 +32,7 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="110dp"
         android:layout_height="90dp"
         android:background="@android:color/transparent"
@@ -46,6 +47,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_parks"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="74dp"
         android:checkable="true"
@@ -68,6 +70,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_restaurants"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -90,6 +93,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_wellness_experiences"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="230dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -112,6 +116,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_landmarks"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -134,6 +139,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_bars"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -156,6 +162,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_sporting_events"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="230dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -178,6 +185,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_live_events"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="73dp"
         android:checkable="true"
@@ -200,6 +208,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_concerts"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="141dp"
         android:layout_height="73dp"
         android:checkable="true"
