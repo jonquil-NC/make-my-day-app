@@ -118,7 +118,6 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:hint="Enter the password"
-                    android:inputType="textPassword"
                     android:text="@{userToAdd.password}"
 
                     app:layout_constraintEnd_toEndOf="parent"

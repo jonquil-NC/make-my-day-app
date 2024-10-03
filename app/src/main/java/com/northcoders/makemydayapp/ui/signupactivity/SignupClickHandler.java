@@ -27,8 +27,9 @@ public class SignupClickHandler {
 
 
     public void onSignupNewUser(View view){
-        if(StringUtils.isAnyEmpty(this.user.getEmail(), this.user.getLastname(), this.user.getPassword())) {
-            Toast.makeText(context, "First name, last name, email, username and password cannot be empty", Toast.LENGTH_SHORT)
+
+        if(StringUtils.isAnyEmpty(this.user.getEmail(),this.user.getFirstname(), this.user.getLastname(), this.user.getPassword())) {
+            Toast.makeText(context, user.toString(), Toast.LENGTH_LONG)
                     .show();
             return;
         }
