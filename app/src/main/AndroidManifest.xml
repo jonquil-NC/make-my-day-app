@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MakeMyDayApp"
         tools:targetApi="31">
         <activity
-            android:name=".signing.SignUpActivity$SignUpActivity"
+            android:name=".signing.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
