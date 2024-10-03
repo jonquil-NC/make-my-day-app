@@ -24,14 +24,18 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        this.user = new User();
+
         this.signUpActivityBinding =  DataBindingUtil.setContentView(
                 this,R.layout.activity_sign_up
         );
+
         MainActivityViewModel viewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
 
-        this.user = new User();
+
         this.signupClickHandler = new SignupClickHandler(this.user,this, viewModel);
+
 
         this.signUpActivityBinding.setUser(this.user);
         this.signUpActivityBinding.setClickHandler(this.signupClickHandler);
