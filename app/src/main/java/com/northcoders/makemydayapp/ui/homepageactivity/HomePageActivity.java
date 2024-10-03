@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.northcoders.makemydayapp.R;
@@ -12,7 +13,7 @@ import com.northcoders.makemydayapp.databinding.ActivityAuthenticationBinding;
 import com.northcoders.makemydayapp.model.User;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements LifecycleOwner {
 
     private ActivityAuthenticationBinding authenticationBinding;
     private User user;

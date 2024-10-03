@@ -94,6 +94,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="#FFFFFF"
                 android:text="Login"
+                android:onClick="@{clickHandler::onLoginClick}"
                 android:textColor="#000000" />
             </RelativeLayout>>
         </androidx.cardview.widget.CardView>

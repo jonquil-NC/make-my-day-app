@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.northcoders.makemydayapp.model.User;
+import com.northcoders.makemydayapp.ui.landingpageactivity.LandingPageActivity;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivity;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
@@ -32,7 +33,7 @@ public class SignupClickHandler {
             return;
         }
 
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, LandingPageActivity.class);
 
         // String name, String lastname, String username, String email, String password
         User userToAdd = new User(
@@ -40,6 +41,8 @@ public class SignupClickHandler {
         );
 
         viewModel.addNewUser(userToAdd);
+
+        context.startActivity(intent);
 
     }
 
