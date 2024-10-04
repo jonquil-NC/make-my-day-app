@@ -6,6 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <data>
+
+        <variable
+            name="credentials"
+            type="com.northcoders.makemydayapp.model.User" />
+
         <variable
             name="clickHandler"
             type="com.northcoders.makemydayapp.ui.mainactivity.MainActivityClickHandler" />

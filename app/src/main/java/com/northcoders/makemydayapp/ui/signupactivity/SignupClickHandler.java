@@ -7,8 +7,6 @@ import android.widget.Toast;
 
 import com.northcoders.makemydayapp.model.User;
 import com.northcoders.makemydayapp.ui.activities.ChooseActivities;
-import com.northcoders.makemydayapp.ui.landingpageactivity.LandingPageActivity;
-import com.northcoders.makemydayapp.ui.mainactivity.MainActivity;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
 import org.apache.commons.lang3.StringUtils;

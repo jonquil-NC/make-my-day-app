@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData;
 
 import com.northcoders.makemydayapp.model.User;
 import com.northcoders.makemydayapp.ui.activities.ChooseActivities;
-import com.northcoders.makemydayapp.ui.landingpageactivity.LandingPageActivity;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 import com.northcoders.makemydayapp.ui.signupactivity.SignUpActivity;
 
@@ -31,7 +30,6 @@ public class AuthenticationClickHandler {
     }
 
     public void onLoginClick(View view) {
-
 
 
         LiveData<User> liveData = this.viewModel.getUserDetails(credentials);
