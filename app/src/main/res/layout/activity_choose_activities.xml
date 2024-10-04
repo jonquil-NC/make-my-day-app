@@ -40,6 +40,7 @@
         app:selectionRequired="true"
         app:singleSelection="false" />
 
+
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_parks"
         android:layout_width="141dp"
@@ -223,6 +224,229 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.799"
         app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_restaurants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/chip_restaurants"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_caribbean"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/caribbean"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_chinese"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/chinese"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_indian"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/indian"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_japanese"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/japanese"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_steak"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/steak"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_turkish"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/turkish"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_thai"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/thai"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_vietnamese"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/vietnamese"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_burger"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/burger"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_fish_and_chips"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/fish_and_chips"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_italian"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/italian"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_world_cuisine"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/world_cuisine"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_cafe"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/cafe"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_pub"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
+        android:checkable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/pub"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:chipBackgroundColor="@color/chip_background_colour"
+        app:chipCornerRadius="20dp"
+        app:chipStrokeColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:rippleColor="#feb06a" />
+    </com.google.android.material.chip.ChipGroup>
 
     <Button
         android:id="@+id/button_submit"

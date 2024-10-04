@@ -14,4 +14,18 @@
     <string name="concerts">Concerts</string>
     <string name="submit">Submit</string>
     <string name="dd_mm_yyy">DD/MM/YYY</string>
+    <string name="caribbean">Caribbean</string>
+    <string name="chinese">Chinese</string>
+    <string name="indian">Indian</string>
+    <string name="japanese">Japanese</string>
+    <string name="steak">Steak</string>
+    <string name="turkish">Turkish</string>
+    <string name="thai">Thai</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="burger">Burger</string>
+    <string name="fish_and_chips">Fish and Chips</string>
+    <string name="italian">Italian</string>
+    <string name="cafe">Cafe</string>
+    <string name="pub">Pub</string>
+    <string name="world_cuisine">World Cuisine</string>
 </resources>
