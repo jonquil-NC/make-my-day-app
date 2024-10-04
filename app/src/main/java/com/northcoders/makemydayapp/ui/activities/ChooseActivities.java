@@ -2,6 +2,7 @@ package com.northcoders.makemydayapp.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +21,12 @@ import java.util.List;
 
 public class ChooseActivities extends AppCompatActivity {
 
+
+    private static final String TAG = ChooseActivities.class.getName();
+
     private EditText dateInput;
-    private ChipGroup activityChipGroup, cuisineChipGroup;
+    private ChipGroup activityChipGroup;
+    private ChipGroup cuisineChipGroup;
     private Button submitButton;
     private EventRepository eventRepository;
 
@@ -36,24 +41,42 @@ public class ChooseActivities extends AppCompatActivity {
         submitButton = findViewById(R.id.button_submit);
         eventRepository = new EventRepository(getApplication());
 
+
         cuisineChipGroup.setVisibility(View.GONE);
+
 
         activityChipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
             boolean restaurantSelected = false;
 
-            for (Integer checkedId : checkedIds) {
-                Chip selectedChip = findViewById(checkedId);
-                if (selectedChip != null && selectedChip.getText().toString().equalsIgnoreCase("Restaurants")) {
-                    restaurantSelected = true;
-                    cuisineChipGroup.setVisibility(View.VISIBLE);
-                }
-            }
+             Log.i(TAG, "Checked Group: ids: " + checkedIds);
+
+             if(checkedIds.contains(R.id.chip_restaurants)) {
+                 Chip restaurantChip = findViewById(R.id.chip_restaurants);
+                 Log.i(TAG, "Selected Chip: " + restaurantChip);
+                 if(restaurantChip.isChecked()) {
+                     Log.i(TAG, "Making the Restaurant group visible.");
+                     cuisineChipGroup.setVisibility(View.VISIBLE);
+                 } else {
+                     Log.i(TAG, "Making the Restaurant group gone.");
+                     cuisineChipGroup.setVisibility(View.GONE);
+                 }
+             }
+
+
+//            for (Integer checkedId : checkedIds) {
+//                Chip selectedChip = findViewById(checkedId);
+//                Log.i(TAG, "Selected Chip: " + selectedChip);
+//                if (selectedChip != null && selectedChip.getText().toString().equalsIgnoreCase("Restaurants")) {
+//                    restaurantSelected = true;
+//                    cuisineChipGroup.setVisibility(View.VISIBLE);
+//                }
+//            }
 
 //            Hide cuisine if restaurant is not selected
-            if (!restaurantSelected) {
-                cuisineChipGroup.setVisibility(View.GONE);
-                cuisineChipGroup.clearCheck();
-            }
+//            if (!restaurantSelected) {
+//                cuisineChipGroup.setVisibility(View.GONE);
+//                cuisineChipGroup.clearCheck();
+//            }
         });
 
         submitButton.setOnClickListener(s -> {
@@ -86,7 +109,7 @@ public class ChooseActivities extends AppCompatActivity {
                 for (Integer checkedId : selectedCuisineIds) {
                     Chip selectedCuisineChip = findViewById(checkedId);
                     if (selectedCuisineChip != null) {
-                        selectedCuisines.add(selectedCuisineChip.getText().toString());
+                        selectedCuisines.add(selectedCuisineChip.getText().toString().toLowerCase());
                     }
                 }
             }
