@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.northcoders.makemydayapp.model.User" />
+
+        <variable
+            name="clickHandler"
+            type="com.northcoders.makemydayapp.ui.signupactivity.SignupClickHandler" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sing_up_background"
-    tools:context=".signing.SignUpActivity">
+    tools:context=".ui.signupactivity.SignUpActivity">
 
     <EditText
         android:id="@+id/first_name"
@@ -19,6 +32,7 @@
         android:padding="12dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        android:text="@={user.firstname}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
@@ -33,6 +47,7 @@
         android:background="@android:color/transparent"
         android:fontFamily="@font/montserrat_medium"
         android:hint="Last Name"
+        android:text="@={user.lastname}"
         android:padding="12dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
@@ -50,6 +65,7 @@
         android:background="@android:color/transparent"
         android:fontFamily="@font/montserrat_medium"
         android:hint="Email"
+        android:text="@={user.email}"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textColor="@android:color/white"
@@ -68,6 +84,7 @@
         android:background="@android:color/transparent"
         android:fontFamily="@font/montserrat_medium"
         android:hint="Password"
+        android:text="@={user.password}"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="@android:color/white"
@@ -88,6 +105,7 @@
         android:textColor="#2c2c2c"
         android:textSize="24sp"
         android:fontFamily="@font/montserrat_bold"
+        android:onClick="@{clickHandler::onSignupNewUser}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
@@ -96,3 +114,4 @@
         app:layout_constraintVertical_bias="0.916" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

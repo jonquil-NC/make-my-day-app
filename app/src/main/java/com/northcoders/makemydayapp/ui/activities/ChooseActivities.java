@@ -1,4 +1,4 @@
-package com.northcoders.makemydayapp.activities;
+package com.northcoders.makemydayapp.ui.activities;
 
 import android.os.Bundle;
 
@@ -12,15 +12,14 @@ import com.northcoders.makemydayapp.R;
 
 public class ChooseActivities extends AppCompatActivity {
 
+    //private SelectActivity selectActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_choose_activities);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+
+
     }
 }
