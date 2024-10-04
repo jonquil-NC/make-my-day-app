@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.northcoders.makemydayapp.model.User;
 import com.northcoders.makemydayapp.ui.activities.ChooseActivities;
+import com.northcoders.makemydayapp.ui.authenticationactivity.SignInActivity;
+import com.northcoders.makemydayapp.ui.mainactivity.MainActivity;
 import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
 import org.apache.commons.lang3.StringUtils;
@@ -44,6 +46,17 @@ public class SignupClickHandler {
 
         context.startActivity(intent);
 
+    }
+
+
+    public void onBackButtonClicked(View view){
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void onLoginButtonClicked(View view){
+        Intent intent = new Intent(context, SignInActivity.class);
+        context.startActivity(intent);
     }
 
 
