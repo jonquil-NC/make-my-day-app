@@ -2,5 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/montserrat_medium</item>
+        <item>@font/playfair_display_bold</item>
     </array>
 </resources>
