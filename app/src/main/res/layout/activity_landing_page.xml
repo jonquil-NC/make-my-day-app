@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.northcoders.makemydayapp.ui.landingpageactivity.LandingPageClickHandler" />
+    </data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".ui.landingpageactivity.LandingPageActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="357dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:text="So many activities to choose from..."
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipParks"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Parks"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/textView"
+        android:textAlignment="center" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipRestaurants"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Restaurants"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@id/chipParks"
+        android:textAlignment="center" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipWellness"
+        android:layout_width="325dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Wellness Experience"
+        android:layout_below="@+id/chipRestaurants"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipLandmarks"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Landmarks"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/chipWellness"
+        android:textAlignment="center" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipBars"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Bars"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/chipWellness"
+        android:layout_toRightOf="@+id/chipLandmarks"
+        android:textAlignment="center" />
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipSports"
+        android:layout_width="325dp"
+        android:layout_height="55dp"
+        android:text="Sporting Events"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/chipBars"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipLive"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Live Events"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/chipSports"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipConcert"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/chipSports"
+        android:layout_toRightOf="@id/chipLive"
+        android:text="Concerts"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/textViewSelect"
+        android:layout_width="357dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/chipConcert"
+        android:text="Select all apply..."
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="325dp"
+        android:layout_height="55dp"
+        android:text="Submit"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/textViewSelect"
+        android:textAlignment="center"/>
+</RelativeLayout>
+</layout>
