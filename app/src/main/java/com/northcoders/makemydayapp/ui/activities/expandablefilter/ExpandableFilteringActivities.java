@@ -1,13 +1,14 @@
 package com.northcoders.makemydayapp.ui.activities.expandablefilter;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.northcoders.makemydayapp.R;
+import com.northcoders.makemydayapp.model.Restaurant;
+import com.northcoders.makemydayapp.ui.activities.ChooseActivities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,92 +16,103 @@ import java.util.List;
 
 public class ExpandableFilteringActivities extends AppCompatActivity {
 
-    ExpandableListView expandableListView1;
-    ExpandableListView expandableListView2;
-    ExpandableFilteringActivitiesAdapter adapter1;
-    ExpandableFilteringActivitiesAdapter adapter2;
-    List<String> listGroup;
-    HashMap<String, List<String>> listChild;
-    Button addGroupButton, addChildButton, removeChildButton;
+
+    private static final String TAG = ExpandableFilteringActivities.class.getName();
+
+    private static final String GROUP_REST = "Restaurants";
+    private static final String GROUP_PLACES = "Places";
+    private static final String GROUP_EVENTS = "Activities";
+
+
+    ExpandableListView expandableListViewActivities;
+    ExpandableListView expandableListViewRestaurants;
+    ExpandableFilteringActivitiesAdapter expandableFilteringActivitiesAdapter;
+    List<String> listActivitiesTypes;
+    HashMap<String, List<String>> groupOfActivitiesByType;
+    HashMap<String, List<Restaurant>> groupOfRestaurants;
+//    Button addGroupButton, addChildButton, removeChildButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandable_filtering_activities);
 
-        expandableListView1 = findViewById(R.id.expandableListView1);
-        expandableListView2 = findViewById(R.id.expandableListView2);
+        this.expandableListViewActivities = findViewById(R.id.expandableListViewActivitiesFiltering);
+        this.expandableListViewRestaurants = findViewById(R.id.expandableListViewRestaurantsFiltering);
 
-        addGroupButton = findViewById(R.id.addGroupButton);
-        addChildButton = findViewById(R.id.addChildButton);
-        removeChildButton = findViewById(R.id.removeChildButton);
+//        addGroupButton = findViewById(R.id.addGroupButton);
+//        addChildButton = findViewById(R.id.addChildButton);
+//        removeChildButton = findViewById(R.id.removeChildButton);
 
         // Initialize data
         initData();
 
         // Set up adapters for both ExpandableListViews
-        adapter1 = new ExpandableFilteringActivitiesAdapter(this, listGroup, listChild);
-        adapter2 = new ExpandableFilteringActivitiesAdapter(this, listGroup, listChild);
+        expandableFilteringActivitiesAdapter = new ExpandableFilteringActivitiesAdapter(this, listActivitiesTypes, groupOfActivitiesByType);
 
-        expandableListView1.setAdapter(adapter1);
-        expandableListView2.setAdapter(adapter2);
+        expandableListViewActivities.setAdapter(expandableFilteringActivitiesAdapter);
 
         // Add new group dynamically
-        addGroupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String newGroup = "Group " + (listGroup.size() + 1);
-                listGroup.add(newGroup);
-                listChild.put(newGroup, new ArrayList<>()); // Initialize empty child list
-                adapter1.notifyDataSetChanged(); // Notify the adapter that the data has changed
-                adapter2.notifyDataSetChanged();
-            }
-        });
-
-        // Add a new child to the first group dynamically
-        addChildButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
-                group1Items.add("New Child " + (group1Items.size() + 1));
-                adapter1.notifyDataSetChanged();
-                adapter2.notifyDataSetChanged();
-            }
-        });
-
-        // Remove the last child from the first group dynamically
-        removeChildButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
-                if (!group1Items.isEmpty()) {
-                    group1Items.remove(group1Items.size() - 1); // Remove the last child
-                    adapter1.notifyDataSetChanged();
-                    adapter2.notifyDataSetChanged();
-                }
-            }
-        });
+//        addGroupButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String newGroup = "Group " + (listGroup.size() + 1);
+//                listGroup.add(newGroup);
+//                listChild.put(newGroup, new ArrayList<>()); // Initialize empty child list
+//                adapter1.notifyDataSetChanged(); // Notify the adapter that the data has changed
+//            }
+//        });
+//
+//        // Add a new child to the first group dynamically
+//        addChildButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
+//                group1Items.add("New Child " + (group1Items.size() + 1));
+//                adapter1.notifyDataSetChanged();
+//
+//            }
+//        });
+//
+//        // Remove the last child from the first group dynamically
+//        removeChildButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
+//                if (!group1Items.isEmpty()) {
+//                    group1Items.remove(group1Items.size() - 1); // Remove the last child
+//                    adapter1.notifyDataSetChanged();
+//                }
+//            }
+//        });
     }
 
     // Method to initialize the data
     private void initData() {
-        listGroup = new ArrayList<>();
-        listChild = new HashMap<>();
+        List<String> placesList = this.getIntent().getStringArrayListExtra(ChooseActivities.PLACE_LIST_NAME_EXTRA);
+        List<String> cuisineList = this.getIntent().getStringArrayListExtra(ChooseActivities.CUISINE_LIST_NAME_EXTRA);
+        List<String> eventsList = this.getIntent().getStringArrayListExtra(ChooseActivities.EVENTS_LIST_NAME_EXTRA);
 
-        // Add initial group titles
-        listGroup.add("Group 1");
-        listGroup.add("Group 2");
+        Log.i(TAG, "Places list: " + placesList);
+        Log.i(TAG, "Cuisine list: " + cuisineList);
+        Log.i(TAG, "Events list: " + eventsList);
 
-        // Add child items to groups
-        List<String> group1Items = new ArrayList<>();
-        group1Items.add("Item 1");
-        group1Items.add("Item 2");
+        listActivitiesTypes = new ArrayList<>();
+        groupOfActivitiesByType = new HashMap<>();
 
-        List<String> group2Items = new ArrayList<>();
-        group2Items.add("Item 3");
-        group2Items.add("Item 4");
+        if(!placesList.isEmpty()) {
+            listActivitiesTypes.add(GROUP_PLACES);
+        }
 
-        listChild.put(listGroup.get(0), group1Items);
-        listChild.put(listGroup.get(1), group2Items);
+        if(!cuisineList.isEmpty()) {
+            listActivitiesTypes.add(GROUP_REST);
+        }
+
+        if(!eventsList.isEmpty()) {
+            listActivitiesTypes.add(GROUP_EVENTS);
+        }
+
+
+
     }
 }

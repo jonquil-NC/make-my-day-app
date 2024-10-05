@@ -5,22 +5,24 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- First ExpandableListView -->
+    <!-- Restaurant ExpandableListView -->
     <ExpandableListView
-        android:id="@+id/expandableListView1"
+        android:id="@+id/expandableListViewRestaurantsFiltering"
+        android:backgroundTint="@color/design_default_color_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"
+        android:dividerHeight="2dp"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
 
-    <!-- Second ExpandableListView -->
+    <!-- Activities ExpandableListView -->
     <ExpandableListView
-        android:id="@+id/expandableListView2"
+        android:id="@+id/expandableListViewActivitiesFiltering"
+        android:backgroundTint="@color/design_default_color_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"
+        android:dividerHeight="2dp"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
 
     <!-- Buttons to dynamically add/remove items -->

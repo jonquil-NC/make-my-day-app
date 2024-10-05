@@ -7,11 +7,16 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.northcoders.makemydayapp.R;
 import com.northcoders.makemydayapp.databinding.ActivityChooseActivitiesBinding;
 
 public class ChooseActivities extends AppCompatActivity {
+
+    public final static String PLACE_LIST_NAME_EXTRA = "placesList";
+    public final static String CUISINE_LIST_NAME_EXTRA = "cuisinesList";
+    public final static String EVENTS_LIST_NAME_EXTRA = "eventsList";
 
     private static final String TAG = ChooseActivities.class.getName();
 
@@ -26,18 +31,17 @@ public class ChooseActivities extends AppCompatActivity {
                 this,R.layout.activity_choose_activities
         );
 
-        ChipGroup activityChipGroup = findViewById(R.id.chip_group);
         ChooseActivityClickHandlers handlers = new ChooseActivityClickHandlers(this);
-        activityChipGroup.setOnCheckedStateChangeListener(handlers);
+        Chip restaurantChip = this.findViewById(R.id.chip_restaurants);
+        restaurantChip.setOnCheckedChangeListener(handlers);
 
         this.activityChooseActivitiesBinding.setClickHandler(handlers);
 
         ChipGroup cuisineChipGroup = findViewById(R.id.chip_group_restaurants);
         cuisineChipGroup.setVisibility(View.GONE);
 
-        Button submitButton = findViewById(R.id.button_submit);
+        Button submitButton = findViewById(R.id.chooseActivities_submit);
         submitButton.setOnClickListener(handlers);
-
-
+        restaurantChip.setVisibility(View.VISIBLE);
     }
 }
