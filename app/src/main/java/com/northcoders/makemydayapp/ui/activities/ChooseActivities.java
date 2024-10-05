@@ -9,130 +9,48 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.northcoders.makemydayapp.R;
 import com.northcoders.makemydayapp.activities.ActivityView;
+import com.northcoders.makemydayapp.databinding.ActivityChooseActivitiesBinding;
 import com.northcoders.makemydayapp.service.EventRepository;
+import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
+import com.northcoders.makemydayapp.ui.signupactivity.SignupClickHandler;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseActivities extends AppCompatActivity {
 
-
     private static final String TAG = ChooseActivities.class.getName();
 
-    private EditText dateInput;
-    private ChipGroup activityChipGroup;
-    private ChipGroup cuisineChipGroup;
-    private Button submitButton;
-    private EventRepository eventRepository;
+    private ActivityChooseActivitiesBinding activityChooseActivitiesBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_activities);
 
-        dateInput = findViewById(R.id.dateInput);
-        activityChipGroup = findViewById(R.id.chip_group);
-        cuisineChipGroup = findViewById(R.id.chip_group_restaurants);
-        submitButton = findViewById(R.id.button_submit);
-        eventRepository = new EventRepository(getApplication());
+        this.activityChooseActivitiesBinding =  DataBindingUtil.setContentView(
+                this,R.layout.activity_choose_activities
+        );
 
+        ChipGroup activityChipGroup = findViewById(R.id.chip_group);
+        ChooseActivityClickHandlers handlers = new ChooseActivityClickHandlers(this);
+        activityChipGroup.setOnCheckedStateChangeListener(handlers);
 
+        this.activityChooseActivitiesBinding.setClickHandler(handlers);
+
+        ChipGroup cuisineChipGroup = findViewById(R.id.chip_group_restaurants);
         cuisineChipGroup.setVisibility(View.GONE);
 
-
-        activityChipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
-            boolean restaurantSelected = false;
-
-             Log.i(TAG, "Checked Group: ids: " + checkedIds);
-
-             if(checkedIds.contains(R.id.chip_restaurants)) {
-                 Chip restaurantChip = findViewById(R.id.chip_restaurants);
-                 Log.i(TAG, "Selected Chip: " + restaurantChip);
-                 if(restaurantChip.isChecked()) {
-                     Log.i(TAG, "Making the Restaurant group visible.");
-                     cuisineChipGroup.setVisibility(View.VISIBLE);
-                 } else {
-                     Log.i(TAG, "Making the Restaurant group gone.");
-                     cuisineChipGroup.setVisibility(View.GONE);
-                 }
-             }
+        Button submitButton = findViewById(R.id.button_submit);
+        submitButton.setOnClickListener(handlers);
 
 
-//            for (Integer checkedId : checkedIds) {
-//                Chip selectedChip = findViewById(checkedId);
-//                Log.i(TAG, "Selected Chip: " + selectedChip);
-//                if (selectedChip != null && selectedChip.getText().toString().equalsIgnoreCase("Restaurants")) {
-//                    restaurantSelected = true;
-//                    cuisineChipGroup.setVisibility(View.VISIBLE);
-//                }
-//            }
-
-//            Hide cuisine if restaurant is not selected
-//            if (!restaurantSelected) {
-//                cuisineChipGroup.setVisibility(View.GONE);
-//                cuisineChipGroup.clearCheck();
-//            }
-        });
-
-        submitButton.setOnClickListener(s -> {
-            List<Integer> selectedActivities = activityChipGroup.getCheckedChipIds();
-            if (selectedActivities.isEmpty()) {
-                Toast.makeText(this, "Please select at least one activity.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-//            Get selected activity names
-            List<String> selectedActivityNames = new ArrayList<>();
-            for (Integer checkedId : selectedActivities) {
-                Chip selectedChip = findViewById(checkedId);
-                if (selectedChip != null) {
-                    selectedActivityNames.add(selectedChip.getText().toString());
-                }
-            }
-
-//            Check if Restaurant is selected, if so check cuisines are also selected
-            boolean restaurantSelected = selectedActivityNames.contains("Restaurants");
-            List<String> selectedCuisines = new ArrayList<>();
-            if (restaurantSelected) {
-                List<Integer> selectedCuisineIds = cuisineChipGroup.getCheckedChipIds();
-                if (selectedCuisineIds.isEmpty()) {
-                    Toast.makeText(this, "Please select at least one cuisine.", Toast.LENGTH_SHORT).show();
-                    return;
-            }
-
-//                Get selected cuisine names
-                for (Integer checkedId : selectedCuisineIds) {
-                    Chip selectedCuisineChip = findViewById(checkedId);
-                    if (selectedCuisineChip != null) {
-                        selectedCuisines.add(selectedCuisineChip.getText().toString().toLowerCase());
-                    }
-                }
-            }
-
-//            Get date from EditText
-            String date = dateInput.getText().toString();
-
-//          Call the method to make API requests
-            makeApiRequests(date, selectedActivityNames, selectedCuisines);
-
-        });
-    }
-
-    private void makeApiRequests(String date, List<String> selectedActivities, List<String> selectedCuisines) {
-        eventRepository.getEventsByPreferences(date, selectedActivities, selectedCuisines).observe(this, events -> {
-
-            if (events != null) {
-                Intent intent = new Intent(ChooseActivities.this, ActivityView.class);
-                intent.putParcelableArrayListExtra("eventList", new ArrayList<>(events));
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, "No events found. Please try again.", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

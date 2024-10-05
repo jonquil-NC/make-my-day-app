@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.northcoders.makemydayapp.ui.activities.ChooseActivityClickHandlers" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +48,6 @@
         app:layout_constraintVertical_bias="1.0"
         app:selectionRequired="true"
         app:singleSelection="false">
-
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_parks"
@@ -225,24 +234,24 @@
                 app:rippleColor="#feb06a" />
 
 
+
+
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group_restaurants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B2FFD740"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chip_group"
+        app:layout_constraintBottom_toTopOf="@id/button_submit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/dateInput"
+        app:layout_constraintVertical_bias="0.5"
         app:selectionRequired="true"
-        app:singleSelection="true">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/groupCuisineConstraint"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        app:singleSelection="false"
+        >
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_caribbean"
@@ -254,8 +263,8 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:chipBackgroundColor="@color/chip_background_colour"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:chipCornerRadius="20dp"
                 app:chipStrokeColor="@color/white"
                 app:chipStrokeWidth="1dp"
@@ -432,23 +441,6 @@
                 app:rippleColor="#feb06a" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_world_cuisine"
-                android:layout_width="wrap_content"
-                android:layout_height="73dp"
-                android:checkable="true"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="@string/world_cuisine"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:chipBackgroundColor="@color/chip_background_colour"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:chipCornerRadius="20dp"
-                app:chipStrokeColor="@color/white"
-                app:chipStrokeWidth="1dp"
-                app:rippleColor="#feb06a" />
-
-            <com.google.android.material.chip.Chip
                 android:id="@+id/chip_cafe"
                 android:layout_width="wrap_content"
                 android:layout_height="73dp"
@@ -481,7 +473,40 @@
                 app:chipStrokeColor="@color/white"
                 app:chipStrokeWidth="1dp"
                 app:rippleColor="#feb06a" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_world_cuisine"
+            android:layout_width="wrap_content"
+            android:layout_height="73dp"
+            android:checkable="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/world_cuisine"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@color/chip_background_colour"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="@color/white"
+            app:chipStrokeWidth="1dp"
+            app:rippleColor="#feb06a" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonRestGroupChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/searchbar_scrolling_view_behavior"
+            android:onClick="@{clickHandler::onCloseRestaurantGroupChips}"
+            android:src="@android:drawable/ic_menu_revert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:srcCompat="@android:drawable/checkbox_on_background" />
     </com.google.android.material.chip.ChipGroup>
 
     <Button
@@ -501,3 +526,6 @@
         app:layout_constraintVertical_bias="0.954" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
