@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.northcoders.makemydayapp.R;
-import com.northcoders.makemydayapp.activities.ActivityView;
+import com.northcoders.makemydayapp.ui.activities.expandablefilter.ExpandableFilteringActivities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class ChooseActivityClickHandlers implements ChipGroup.OnCheckedStateChan
         }
 
 //            Get selected activity names
-        List<String> selectedActivityNames = new ArrayList<>();
+        ArrayList<String> selectedActivityNames = new ArrayList<>();
         for (Integer checkedId : selectedActivities) {
             Chip selectedChip = this.appCompatActivity.findViewById(checkedId);
             if (selectedChip != null) {
@@ -72,7 +72,7 @@ public class ChooseActivityClickHandlers implements ChipGroup.OnCheckedStateChan
 
 //            Check if Restaurant is selected, if so check cuisines are also selected
         boolean restaurantSelected = selectedActivityNames.contains("restaurants");
-        List<String> selectedCuisines = new ArrayList<>();
+        ArrayList<String> selectedCuisines = new ArrayList<>();
         if (restaurantSelected) {
             ChipGroup cuisineChipGroup = this.appCompatActivity.findViewById(R.id.chip_group_restaurants);
             List<Integer> selectedCuisineIds = cuisineChipGroup.getCheckedChipIds();
@@ -94,11 +94,14 @@ public class ChooseActivityClickHandlers implements ChipGroup.OnCheckedStateChan
         EditText dateInput = this.appCompatActivity.findViewById(R.id.dateInput);
         String date = dateInput.getText().toString();
 
-        Log.i(TAG, "List of activities:  " + selectedActivities);
+        Log.i(TAG, "List of activities:  " + selectedActivityNames);
         Log.i(TAG, "List of restaurants: " + selectedCuisines);
 
-//          Call the method to make API requests
-        //TODO: makeApiRequests(date, selectedActivityNames, selectedCuisines);
+        Intent intent = new Intent(this.appCompatActivity, ExpandableFilteringActivities.class);
+        intent.putStringArrayListExtra("activitiesList", selectedActivityNames);
+        intent.putStringArrayListExtra("cuisineList", selectedCuisines);
+
+        this.appCompatActivity.startActivity(intent);
 
     }
 
@@ -114,18 +117,4 @@ public class ChooseActivityClickHandlers implements ChipGroup.OnCheckedStateChan
         activityChipGroup.setVisibility(activityChipGroupVisible);
 
     }
-
-// TODO:
-//    private void makeApiRequests(String date, List<String> selectedActivities, List<String> selectedCuisines) {
-//        eventRepository.getEventsByPreferences(date, selectedActivities, selectedCuisines).observe(this, events -> {
-//
-//            if (events != null) {
-//                Intent intent = new Intent(ChooseActivities.this, ActivityView.class);
-//                intent.putParcelableArrayListExtra("eventList", new ArrayList<>(events));
-//                startActivity(intent);
-//            } else {
-//                Toast.makeText(this, "No events found. Please try again.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 }

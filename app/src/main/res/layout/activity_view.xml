@@ -15,7 +15,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activities_view_background"
-    tools:context=".activities.ActivityView">
+    tools:context=".ui.activities.ActivityView">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
