@@ -23,7 +23,7 @@ public class ActivityView extends AppCompatActivity {
 
 
 //        Get list of events from previous activity
-        List<MMDEvent> eventList = getIntent().getParcelableArrayListExtra("eventList");
+        List<MMDEvent> eventList = getIntent().getParcelableArrayListExtra("eventList", MMDEvent.class);
 
         if (eventList != null && !eventList.isEmpty()) {
             RecyclerView recyclerView = findViewById(R.id.recycler_view_events);
