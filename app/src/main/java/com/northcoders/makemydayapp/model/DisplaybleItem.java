@@ -1,6 +1,8 @@
 package com.northcoders.makemydayapp.model;
 
-public interface DisplaybleItem {
+import android.os.Parcelable;
+
+public interface DisplaybleItem extends Parcelable {
 
     String display();
 

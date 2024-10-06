@@ -4,11 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.northcoders.makemydayapp.ui.activities.expandablefilter.ExpandableFilteringActivitiesClickHandler" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:context=".ui.activities.expandablefilter.ExpandableFilteringActivities"
+        >
 
         <TextView
             android:id="@+id/titleExpandableListView"
@@ -38,55 +46,99 @@
 
             />
 
+        <TextView
+            android:id="@+id/textMorningDropContainer"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:padding="2dp"
+            android:text="Morning"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+
+            tools:text="Morning" />
         <LinearLayout
             android:id="@+id/dropMorningContainer"
             android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="#AABBCCDD"
-            android:padding="16dp"
+
+            android:padding="2dp"
 
             android:text="Drop in Morning Activity"
 
             android:layout_margin="10dp"
 
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textMorningDropContainer"
+            />
+
+        <TextView
+            android:id="@+id/textAfternoonDropContainer"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:layout_margin="10dp"
+
+            android:text="Afternoon"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/textMorningDropContainer"
             app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+
             />
 
         <LinearLayout
             android:id="@+id/dropAfternoonContainer"
             android:layout_width="110dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="#AABBCCDD"
-            android:padding="16dp"
+            android:padding="2dp"
 
             android:text="Drop in Afternoon Activity"
 
             android:layout_margin="10dp"
 
             app:layout_constraintStart_toEndOf="@id/dropMorningContainer"
+            app:layout_constraintTop_toBottomOf="@id/textAfternoonDropContainer"
+            />
+
+        <TextView
+            android:id="@+id/textEveningDropContainer"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:layout_margin="10dp"
+
+            android:text="Evening"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/textAfternoonDropContainer"
             app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+
             />
 
         <LinearLayout
             android:id="@+id/dropEveningContainer"
             android:layout_width="110dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="#AABBCCDD"
-            android:padding="16dp"
+            android:padding="2dp"
 
             android:text="Drop in Evening Activity"
 
             android:layout_margin="10dp"
 
             app:layout_constraintStart_toEndOf="@id/dropAfternoonContainer"
-            app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+            app:layout_constraintTop_toBottomOf="@id/textEveningDropContainer"
             />
 
         <Button
@@ -95,7 +147,9 @@
             android:layout_height="50dp"
 
             android:text="Submit"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+
+            android:onClick="@{clickHandler::onClickSubmit}"
 
             app:layout_constraintStart_toStartOf="@id/dropAfternoonContainer"
             app:layout_constraintTop_toBottomOf="@id/dropEveningContainer"

@@ -16,11 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.itinerary.Itinerary"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.expandablefilter.ExpandableFilteringActivities"
             android:exported="false" />
         <activity
             android:name=".ui.authenticationactivity.SignInActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.signupactivity.SignUpActivity"
             android:exported="false" />
@@ -29,7 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.activities.ActivityView"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.mainactivity.MainActivity"
             android:exported="true">

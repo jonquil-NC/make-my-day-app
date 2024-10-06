@@ -18,13 +18,13 @@ public class DragAndDropHandler implements View.OnDragListener {
 
     private LinearLayout dropContainer;
     private Context context;
-    private Map<String,ItineraryItem> itineraryItemMap = new HashMap<>();
+    private ExpandableFilteringActivitiesClickHandler clickHandler;
     private String key;
 
-    public DragAndDropHandler(LinearLayout dropContainer, Context context, Map<String,ItineraryItem> itineraryItemMap, String key){
+    public DragAndDropHandler(LinearLayout dropContainer, Context context, ExpandableFilteringActivitiesClickHandler clickHandler, String key){
         this.dropContainer = dropContainer;
         this.context = context;
-        this.itineraryItemMap = itineraryItemMap;
+        this.clickHandler = clickHandler;
         this.key = key;
     }
 
@@ -48,7 +48,7 @@ public class DragAndDropHandler implements View.OnDragListener {
                 final ItineraryItem itineraryItem = (ItineraryItem) event.getLocalState();
 
                 Log.i(TAG,"Dropped Element in : "+ itineraryItem.getDisplay());
-                this.itineraryItemMap.put(key, itineraryItem);
+                this.clickHandler.putActivity(key, itineraryItem);
 
                 return true;
             default:

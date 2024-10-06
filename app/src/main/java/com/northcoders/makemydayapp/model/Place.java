@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Place implements DisplaybleItem, Parcelable {
+public class Place implements DisplaybleItem {
     String name;
     String openingHours;
     String address;

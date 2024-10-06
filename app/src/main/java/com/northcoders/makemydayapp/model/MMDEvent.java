@@ -5,11 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
-public class MMDEvent implements Parcelable, DisplaybleItem {
+public class MMDEvent implements DisplaybleItem {
 
     private String id;
     private String name;
@@ -68,15 +65,4 @@ public class MMDEvent implements Parcelable, DisplaybleItem {
                 this.endTime
         );
     }
-
-//    @Override
-//    public String display() {
-//        return String.format("%s - %s (%s %s-%s)",
-//                this.activityType,
-//                name,
-//                this.date.format(DateTimeFormatter.ISO_LOCAL_DATE),
-//                this.startTime.format(DateTimeFormatter.ISO_LOCAL_TIME),
-//                this.endTime.format(DateTimeFormatter.ISO_LOCAL_TIME)
-//                );
-//    }
 }

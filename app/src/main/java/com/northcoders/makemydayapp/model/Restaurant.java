@@ -1,12 +1,16 @@
 package com.northcoders.makemydayapp.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.northcoders.makemydayapp.BR;
 
-public class Restaurant extends BaseObservable implements DisplaybleItem{
+public class Restaurant extends BaseObservable implements DisplaybleItem {
 
     private String name;
     private String address;
@@ -24,6 +28,26 @@ public class Restaurant extends BaseObservable implements DisplaybleItem{
         this.phoneNumber = phoneNumber;
         this.openingHours = openingHours;
     }
+
+    protected Restaurant(Parcel in) {
+        name = in.readString();
+        address = in.readString();
+        imageUrl = in.readString();
+        phoneNumber = in.readString();
+        openingHours = in.readString();
+    }
+
+    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
+        @Override
+        public Restaurant createFromParcel(Parcel in) {
+            return new Restaurant(in);
+        }
+
+        @Override
+        public Restaurant[] newArray(int size) {
+            return new Restaurant[size];
+        }
+    };
 
     @Bindable
     public String getName() {
@@ -91,5 +115,19 @@ public class Restaurant extends BaseObservable implements DisplaybleItem{
     @Override
     public String display() {
         return String.format("%s - %s", name, address);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(address);
+        parcel.writeString(imageUrl);
+        parcel.writeString(phoneNumber);
+        parcel.writeString(openingHours);
     }
 }

@@ -14,6 +14,7 @@ public class ItineraryItem<T extends DisplaybleItem> implements Parcelable {
     }
 
     protected ItineraryItem(Parcel in) {
+        value = in.readParcelable(getClass().getClassLoader());
     }
 
     public static final Creator<ItineraryItem> CREATOR = new Creator<ItineraryItem>() {
@@ -43,9 +44,10 @@ public class ItineraryItem<T extends DisplaybleItem> implements Parcelable {
     @Override
     public String toString() {
         return "ItineraryItem{" +
-                "value=" + value.display() +
+                "value=" + value +
                 '}';
     }
+
 
     @Override
     public int describeContents() {
@@ -53,6 +55,7 @@ public class ItineraryItem<T extends DisplaybleItem> implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
+    public void writeToParcel(@NonNull Parcel parcel, int flag) {
+        parcel.writeParcelable(value, flag);
     }
 }
