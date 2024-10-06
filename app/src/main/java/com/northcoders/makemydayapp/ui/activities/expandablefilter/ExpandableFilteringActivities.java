@@ -7,11 +7,13 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.northcoders.makemydayapp.R;
+import com.northcoders.makemydayapp.databinding.ActivityExpandableFilteringActivitiesBinding;
 import com.northcoders.makemydayapp.model.ItineraryItem;
 import com.northcoders.makemydayapp.model.MMDEvent;
 import com.northcoders.makemydayapp.model.Place;
@@ -30,6 +32,8 @@ public class ExpandableFilteringActivities extends AppCompatActivity {
 
 
     private static final String TAG = ExpandableFilteringActivities.class.getName();
+
+    private ActivityExpandableFilteringActivitiesBinding expandableFilteringActivitiesBinding;
 
     private static final String GROUP_REST = "Restaurants";
     private static final String GROUP_PLACES = "Places";
@@ -57,6 +61,11 @@ public class ExpandableFilteringActivities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandable_filtering_activities);
 
+        this.expandableFilteringActivitiesBinding = DataBindingUtil.setContentView(
+                this,
+                R.layout.activity_expandable_filtering_activities);
+
+
         this.expandableListViewActivities = findViewById(R.id.expandableListViewItemsFiltering);
 
         this.dropMorningContainer = findViewById(R.id.dropMorningContainer);
@@ -68,8 +77,8 @@ public class ExpandableFilteringActivities extends AppCompatActivity {
         this.dropEveningContainer.setOnDragListener(new DragAndDropHandler(this.dropEveningContainer, this, this.itineraryItemMap, EVENING_ACTIVITY));
 
         this.submitButton = findViewById(R.id.submitItineraryButton);
-        this.submitButton.setOnClickListener(new ExpandableFilteringActivitiesClickHandler(this.itineraryItemMap));
 
+        expandableFilteringActivitiesBinding.setClickHandler(new ExpandableFilteringActivitiesClickHandler(this.itineraryItemMap));
 
         // Initialize data
         MainActivityViewModel viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);

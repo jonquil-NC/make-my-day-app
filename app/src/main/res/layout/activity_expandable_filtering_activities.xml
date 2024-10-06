@@ -4,11 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.northcoders.makemydayapp.ui.activities.expandablefilter.ExpandableFilteringActivitiesClickHandler" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:context=".ui.activities.expandablefilter.ExpandableFilteringActivities"
+        >
 
         <TextView
             android:id="@+id/titleExpandableListView"
@@ -96,6 +104,8 @@
 
             android:text="Submit"
             android:layout_marginTop="50dp"
+
+            android:onClick="@{clickHandler::onClickSubmit}"
 
             app:layout_constraintStart_toStartOf="@id/dropAfternoonContainer"
             app:layout_constraintTop_toBottomOf="@id/dropEveningContainer"

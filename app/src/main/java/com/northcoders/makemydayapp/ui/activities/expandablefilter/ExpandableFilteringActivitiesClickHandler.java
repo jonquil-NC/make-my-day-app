@@ -8,19 +8,19 @@ import com.northcoders.makemydayapp.model.ItineraryItem;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExpandableFilteringActivitiesClickHandler implements View.OnClickListener{
+public class ExpandableFilteringActivitiesClickHandler {
 
 
     private static final String TAG = ExpandableFilteringActivitiesClickHandler.class.getName();
-    private Map<String, ItineraryItem> itineraryItemMap = new HashMap<>();
+    private Map<String, ItineraryItem> itineraryItemMap;
 
 
     public ExpandableFilteringActivitiesClickHandler(Map<String, ItineraryItem> itineraryItemMap) {
         this.itineraryItemMap = itineraryItemMap;
     }
 
-    @Override
-    public void onClick(View v) {
+
+    public void onClickSubmit(View v) {
         //TODO
 
         ItineraryItem morningItem = this.itineraryItemMap.get(ExpandableFilteringActivities.MORNING_ACTIVITY);
