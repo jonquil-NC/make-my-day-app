@@ -17,13 +17,13 @@ import retrofit2.http.Query;
 
 public interface EventsApiService {
 
-    @GET("makemyday/events")
-    Call<List<MMDEvent>> getAllEventsByPreferences(@Query("date") String date, @Query("types") List<String> events);
+    @GET("activities")
+    Call<List<MMDEvent>> getAllEventsByPreferences(/*@Query("date") String date,*/ @Query("type") List<String> events);
 
-    @GET("makemyday/restaurants")
+    @GET("geoapify/restaurants")
     Call<List<Restaurant>>getAllRestaurantByType(@Query("types") List<String> cuisineList);
 
-    @GET("makemyday/places")
+    @GET("places")
     Call<List<Place>>getAllPlacesByType(@Query("types") List<String> placesList);
 
 }

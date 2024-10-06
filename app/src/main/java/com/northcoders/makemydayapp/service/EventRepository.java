@@ -42,9 +42,7 @@ public class EventRepository {
             return eventMutableLiveData;
         }
 
-        String date = localDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
-
-        Call<List<MMDEvent>> eventsCall = eventsApiService.getAllEventsByPreferences(date, eventsPref);
+        Call<List<MMDEvent>> eventsCall = eventsApiService.getAllEventsByPreferences(eventsPref);
 
         eventsCall.enqueue(new Callback<List<MMDEvent>>() {
             @Override

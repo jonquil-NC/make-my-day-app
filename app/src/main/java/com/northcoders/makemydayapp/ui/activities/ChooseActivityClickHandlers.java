@@ -78,9 +78,6 @@ public class ChooseActivityClickHandlers implements CompoundButton.OnCheckedChan
             }
         }
 
-
-
-
         //  Get selected activity names
         ArrayList<String> selectedEventsNames = new ArrayList<>();
         for (Integer checkedId : selectedEvents) {

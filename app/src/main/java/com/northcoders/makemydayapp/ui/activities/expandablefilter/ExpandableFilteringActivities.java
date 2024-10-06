@@ -67,18 +67,19 @@ public class ExpandableFilteringActivities extends AppCompatActivity {
 
 
         this.expandableListViewActivities = findViewById(R.id.expandableListViewItemsFiltering);
+        this.submitButton = findViewById(R.id.submitItineraryButton);
+        ExpandableFilteringActivitiesClickHandler clickHandler = new ExpandableFilteringActivitiesClickHandler();
+        expandableFilteringActivitiesBinding.setClickHandler(clickHandler);
 
         this.dropMorningContainer = findViewById(R.id.dropMorningContainer);
         this.dropAfternoonContainer = findViewById(R.id.dropAfternoonContainer);
         this.dropEveningContainer = findViewById(R.id.dropEveningContainer);
 
-        this.dropMorningContainer.setOnDragListener(new DragAndDropHandler(this.dropMorningContainer, this, this.itineraryItemMap, MORNING_ACTIVITY));
-        this.dropAfternoonContainer.setOnDragListener(new DragAndDropHandler(this.dropAfternoonContainer, this, this.itineraryItemMap, AFTERNOON_ACTIVITY));
-        this.dropEveningContainer.setOnDragListener(new DragAndDropHandler(this.dropEveningContainer, this, this.itineraryItemMap, EVENING_ACTIVITY));
+        this.dropMorningContainer.setOnDragListener(new DragAndDropHandler(this.dropMorningContainer, this,clickHandler, MORNING_ACTIVITY));
+        this.dropAfternoonContainer.setOnDragListener(new DragAndDropHandler(this.dropAfternoonContainer, this, clickHandler, AFTERNOON_ACTIVITY));
+        this.dropEveningContainer.setOnDragListener(new DragAndDropHandler(this.dropEveningContainer, this, clickHandler, EVENING_ACTIVITY));
 
-        this.submitButton = findViewById(R.id.submitItineraryButton);
 
-        expandableFilteringActivitiesBinding.setClickHandler(new ExpandableFilteringActivitiesClickHandler(this.itineraryItemMap));
 
         // Initialize data
         MainActivityViewModel viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
