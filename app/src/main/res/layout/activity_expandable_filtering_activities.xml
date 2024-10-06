@@ -1,46 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/titleExpandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:text="Choose your activities"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
     <!-- Restaurant ExpandableListView -->
-    <ExpandableListView
-        android:id="@+id/expandableListViewRestaurantsFiltering"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="2dp"
-        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
 
-    <!-- Activities ExpandableListView -->
-    <ExpandableListView
-        android:id="@+id/expandableListViewActivitiesFiltering"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="2dp"
-        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
+        <ExpandableListView
+            android:id="@+id/expandableListViewItemsFiltering"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="2dp"
 
-    <!-- Buttons to dynamically add/remove items -->
-    <Button
-        android:id="@+id/addGroupButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Group" />
+            android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorRight"
 
-    <Button
-        android:id="@+id/addChildButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Child to Group 1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleExpandableListView"
 
-    <Button
-        android:id="@+id/removeChildButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remove Last Child from Group 1" />
-</LinearLayout>
+            />
+
+        <LinearLayout
+            android:id="@+id/dropMorningContainer"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="#AABBCCDD"
+            android:padding="16dp"
+
+            android:text="Drop in Morning Activity"
+
+            android:layout_margin="10dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+            />
+
+        <LinearLayout
+            android:id="@+id/dropAfternoonContainer"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="#AABBCCDD"
+            android:padding="16dp"
+
+            android:text="Drop in Afternoon Activity"
+
+            android:layout_margin="10dp"
+
+            app:layout_constraintStart_toEndOf="@id/dropMorningContainer"
+            app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+            />
+
+        <LinearLayout
+            android:id="@+id/dropEveningContainer"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="#AABBCCDD"
+            android:padding="16dp"
+
+            android:text="Drop in Evening Activity"
+
+            android:layout_margin="10dp"
+
+            app:layout_constraintStart_toEndOf="@id/dropAfternoonContainer"
+            app:layout_constraintTop_toBottomOf="@id/expandableListViewItemsFiltering"
+            />
+
+        <Button
+            android:id="@+id/submitItineraryButton"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+
+            android:text="Submit"
+            android:layout_marginTop="50dp"
+
+            app:layout_constraintStart_toStartOf="@id/dropAfternoonContainer"
+            app:layout_constraintTop_toBottomOf="@id/dropEveningContainer"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

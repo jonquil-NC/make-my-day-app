@@ -15,6 +15,7 @@ import com.google.android.material.chip.ChipGroup;
 import com.northcoders.makemydayapp.R;
 import com.northcoders.makemydayapp.ui.activities.expandablefilter.ExpandableFilteringActivities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,6 +102,7 @@ public class ChooseActivityClickHandlers implements CompoundButton.OnCheckedChan
         intent.putStringArrayListExtra(ChooseActivities.PLACE_LIST_NAME_EXTRA, selectedPlacesNames);
         intent.putStringArrayListExtra(ChooseActivities.CUISINE_LIST_NAME_EXTRA, selectedCuisines);
         intent.putStringArrayListExtra(ChooseActivities.EVENTS_LIST_NAME_EXTRA, selectedEventsNames);
+        intent.putExtra(ChooseActivities.EVENTS_DATE_NAME_EXTRA, LocalDate.now());
 
         this.appCompatActivity.startActivity(intent);
 

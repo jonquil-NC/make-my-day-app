@@ -6,7 +6,7 @@ import androidx.databinding.Bindable;
 
 import com.northcoders.makemydayapp.BR;
 
-public class Restaurant extends BaseObservable {
+public class Restaurant extends BaseObservable implements DisplaybleItem{
 
     private String name;
     private String address;
@@ -73,5 +73,23 @@ public class Restaurant extends BaseObservable {
     public void setOpeningHours(String openingHours) {
         this.openingHours = openingHours;
         notifyPropertyChanged(BR.openingHours);
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", openingHours='" + openingHours + '\'' +
+                '}';
+    }
+
+    @Override
+    public String display() {
+        return String.format("%s - %s", name, address);
     }
 }

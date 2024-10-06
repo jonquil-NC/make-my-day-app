@@ -82,8 +82,6 @@ public class ExpandableFilteringRestaurantAdapter extends BaseExpandableListAdap
             convertView = inflater.inflate(R.layout.expandable_filtering_activity_item, null);
         }
         TextView childTextView = convertView.findViewById(R.id.item_text);
-        CheckBox childCheckBox = convertView.findViewById(R.id.item_checkbox);
-
         childTextView.setText(childRestaurant.getName());
         // You can dynamically manage the checkbox state here
 

@@ -1,9 +1,11 @@
 package com.northcoders.makemydayapp.service;
 
 import com.northcoders.makemydayapp.model.MMDEvent;
+import com.northcoders.makemydayapp.model.Place;
 import com.northcoders.makemydayapp.model.Restaurant;
 import com.northcoders.makemydayapp.model.User;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -15,18 +17,13 @@ import retrofit2.http.Query;
 
 public interface EventsApiService {
 
-//    @GET("events")
-//    Call<List<MMDEvent>> getAllEventsByPreferences();
+    @GET("makemyday/events")
+    Call<List<MMDEvent>> getAllEventsByPreferences(@Query("date") String date, @Query("types") List<String> events);
 
-//  GET, with user selecting cuisine
-    @GET("/events/preferences")
-    Call<List<MMDEvent>> getAllEventsByPreferences(@Query("date") String date, @Query("activities") List<String> activities, @Query("cuisines") List<String> cuisines);
+    @GET("makemyday/restaurants")
+    Call<List<Restaurant>>getAllRestaurantByType(@Query("types") List<String> cuisineList);
 
-//  If user doesn't select cuisine
-    @GET("/events/preferences")
-    Call<List<MMDEvent>> getAllEventsByPreferencesWithoutCuisine(@Query("date") String date, @Query("activities") List<String> activities);
-
-    @GET("/geoapify/restaurants/{type}")
-    Call<List<Restaurant>>getAllRestaurantByType(@Path("type") String type);
+    @GET("makemyday/places")
+    Call<List<Place>>getAllPlacesByType(@Query("types") List<String> placesList);
 
 }

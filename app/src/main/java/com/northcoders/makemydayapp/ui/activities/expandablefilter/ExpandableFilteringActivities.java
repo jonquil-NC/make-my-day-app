@@ -2,17 +2,29 @@ package com.northcoders.makemydayapp.ui.activities.expandablefilter;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.northcoders.makemydayapp.R;
+import com.northcoders.makemydayapp.model.ItineraryItem;
+import com.northcoders.makemydayapp.model.MMDEvent;
+import com.northcoders.makemydayapp.model.Place;
 import com.northcoders.makemydayapp.model.Restaurant;
 import com.northcoders.makemydayapp.ui.activities.ChooseActivities;
+import com.northcoders.makemydayapp.ui.mainactivity.MainActivityViewModel;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ExpandableFilteringActivities extends AppCompatActivity {
 
@@ -23,96 +35,127 @@ public class ExpandableFilteringActivities extends AppCompatActivity {
     private static final String GROUP_PLACES = "Places";
     private static final String GROUP_EVENTS = "Activities";
 
+    public static final String MORNING_ACTIVITY = "morning";
+    public static final String AFTERNOON_ACTIVITY = "afternoon";
+    public static final String EVENING_ACTIVITY = "evening";
 
     ExpandableListView expandableListViewActivities;
-    ExpandableListView expandableListViewRestaurants;
     ExpandableFilteringActivitiesAdapter expandableFilteringActivitiesAdapter;
     List<String> listActivitiesTypes;
-    HashMap<String, List<String>> groupOfActivitiesByType;
-    HashMap<String, List<Restaurant>> groupOfRestaurants;
-//    Button addGroupButton, addChildButton, removeChildButton;
+    HashMap<String, List<ItineraryItem>> groupOfItems= new HashMap<>();
+
+    private LinearLayout dropMorningContainer;
+    private LinearLayout dropAfternoonContainer;
+    private LinearLayout dropEveningContainer;
+
+    private Button submitButton;
+    private Map<String,ItineraryItem> itineraryItemMap = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandable_filtering_activities);
 
-        this.expandableListViewActivities = findViewById(R.id.expandableListViewActivitiesFiltering);
-        this.expandableListViewRestaurants = findViewById(R.id.expandableListViewRestaurantsFiltering);
+        this.expandableListViewActivities = findViewById(R.id.expandableListViewItemsFiltering);
 
-//        addGroupButton = findViewById(R.id.addGroupButton);
-//        addChildButton = findViewById(R.id.addChildButton);
-//        removeChildButton = findViewById(R.id.removeChildButton);
+        this.dropMorningContainer = findViewById(R.id.dropMorningContainer);
+        this.dropAfternoonContainer = findViewById(R.id.dropAfternoonContainer);
+        this.dropEveningContainer = findViewById(R.id.dropEveningContainer);
+
+        this.dropMorningContainer.setOnDragListener(new DragAndDropHandler(this.dropMorningContainer, this, this.itineraryItemMap, MORNING_ACTIVITY));
+        this.dropAfternoonContainer.setOnDragListener(new DragAndDropHandler(this.dropAfternoonContainer, this, this.itineraryItemMap, AFTERNOON_ACTIVITY));
+        this.dropEveningContainer.setOnDragListener(new DragAndDropHandler(this.dropEveningContainer, this, this.itineraryItemMap, EVENING_ACTIVITY));
+
+        this.submitButton = findViewById(R.id.submitItineraryButton);
+        this.submitButton.setOnClickListener(new ExpandableFilteringActivitiesClickHandler(this.itineraryItemMap));
+
 
         // Initialize data
-        initData();
+        MainActivityViewModel viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        initData(viewModel);
 
         // Set up adapters for both ExpandableListViews
-        expandableFilteringActivitiesAdapter = new ExpandableFilteringActivitiesAdapter(this, listActivitiesTypes, groupOfActivitiesByType);
+        expandableFilteringActivitiesAdapter = new ExpandableFilteringActivitiesAdapter(this, listActivitiesTypes, groupOfItems);
 
         expandableListViewActivities.setAdapter(expandableFilteringActivitiesAdapter);
 
-        // Add new group dynamically
-//        addGroupButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String newGroup = "Group " + (listGroup.size() + 1);
-//                listGroup.add(newGroup);
-//                listChild.put(newGroup, new ArrayList<>()); // Initialize empty child list
-//                adapter1.notifyDataSetChanged(); // Notify the adapter that the data has changed
-//            }
-//        });
-//
-//        // Add a new child to the first group dynamically
-//        addChildButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
-//                group1Items.add("New Child " + (group1Items.size() + 1));
-//                adapter1.notifyDataSetChanged();
-//
-//            }
-//        });
-//
-//        // Remove the last child from the first group dynamically
-//        removeChildButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                List<String> group1Items = listChild.get(listGroup.get(0)); // Access the first group
-//                if (!group1Items.isEmpty()) {
-//                    group1Items.remove(group1Items.size() - 1); // Remove the last child
-//                    adapter1.notifyDataSetChanged();
-//                }
-//            }
-//        });
+
     }
 
     // Method to initialize the data
-    private void initData() {
+    private void initData(MainActivityViewModel viewModel) {
         List<String> placesList = this.getIntent().getStringArrayListExtra(ChooseActivities.PLACE_LIST_NAME_EXTRA);
         List<String> cuisineList = this.getIntent().getStringArrayListExtra(ChooseActivities.CUISINE_LIST_NAME_EXTRA);
         List<String> eventsList = this.getIntent().getStringArrayListExtra(ChooseActivities.EVENTS_LIST_NAME_EXTRA);
+        LocalDate localDate = this.getIntent().getSerializableExtra(ChooseActivities.EVENTS_DATE_NAME_EXTRA, LocalDate.class);
 
         Log.i(TAG, "Places list: " + placesList);
         Log.i(TAG, "Cuisine list: " + cuisineList);
         Log.i(TAG, "Events list: " + eventsList);
 
         listActivitiesTypes = new ArrayList<>();
-        groupOfActivitiesByType = new HashMap<>();
 
         if(!placesList.isEmpty()) {
             listActivitiesTypes.add(GROUP_PLACES);
+            groupOfItems.put(GROUP_PLACES,List.of());
+            LiveData<List<Place>> liveDataPlaces = viewModel.getPlaceByType(placesList);
+            liveDataPlaces.observe(this, new Observer<List<Place>>() {
+                @Override
+                public void onChanged(List<Place> places) {
+                    List<ItineraryItem> listOfPlaces = new ArrayList<>();
+                    if(places != null){
+                        for (Place place : places) {
+                            ItineraryItem<Place> itineraryItem = new ItineraryItem<>(place);
+                            listOfPlaces.add(itineraryItem);
+                        }
+                    }
+
+                    groupOfItems.put(GROUP_PLACES, listOfPlaces);
+                    expandableFilteringActivitiesAdapter.notifyDataSetChanged();
+                }
+            });
         }
 
         if(!cuisineList.isEmpty()) {
             listActivitiesTypes.add(GROUP_REST);
+            groupOfItems.put(GROUP_REST,List.of());
+            LiveData<List<Restaurant>> liveDataRestaurants = viewModel.getRestaurantByCuisines(cuisineList);
+
+            liveDataRestaurants.observe(this, new Observer<List<Restaurant>>() {
+                @Override
+                public void onChanged(List<Restaurant> restaurants) {
+                    List<ItineraryItem> listOfRestaurants = new ArrayList<>();
+                    if(restaurants != null) {
+                        for (Restaurant restaurant : restaurants) {
+                            ItineraryItem<Restaurant> itineraryItem = new ItineraryItem<>(restaurant);
+                            listOfRestaurants.add(itineraryItem);
+                        }
+                    }
+                    groupOfItems.put(GROUP_REST, listOfRestaurants);
+                    expandableFilteringActivitiesAdapter.notifyDataSetChanged();
+                }
+            });
         }
 
         if(!eventsList.isEmpty()) {
             listActivitiesTypes.add(GROUP_EVENTS);
+            groupOfItems.put(GROUP_EVENTS,List.of());
+
+            LiveData<List<MMDEvent>> liveDataEvents = viewModel.getEventsByType(localDate, eventsList);
+
+            liveDataEvents.observe(this, events -> {
+                List<ItineraryItem> listOfEvents = new ArrayList<>();
+                if (events != null) {
+                    for (MMDEvent event : events) {
+                        ItineraryItem<MMDEvent> itineraryItem = new ItineraryItem<>(event);
+                        listOfEvents.add(itineraryItem);
+                    }
+                }
+                groupOfItems.put(GROUP_EVENTS, listOfEvents);
+                expandableFilteringActivitiesAdapter.notifyDataSetChanged();
+            });
         }
-
-
 
     }
 }

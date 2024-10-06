@@ -17,6 +17,7 @@ public class ChooseActivities extends AppCompatActivity {
     public final static String PLACE_LIST_NAME_EXTRA = "placesList";
     public final static String CUISINE_LIST_NAME_EXTRA = "cuisinesList";
     public final static String EVENTS_LIST_NAME_EXTRA = "eventsList";
+    public final static String EVENTS_DATE_NAME_EXTRA = "eventsDate";
 
     private static final String TAG = ChooseActivities.class.getName();
 

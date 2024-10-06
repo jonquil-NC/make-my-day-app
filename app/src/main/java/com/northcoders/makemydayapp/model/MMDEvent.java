@@ -5,16 +5,30 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class MMDEvent implements Parcelable {
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
-    private String eventName;
+public class MMDEvent implements Parcelable, DisplaybleItem {
 
-    public MMDEvent(String eventName) {
-        this.eventName = eventName;
-    }
+    private String id;
+    private String name;
+    private String description;
+    private String price;
+    private String date;
+    private String startTime;
+    private String endTime;
+    private String resourceType;
+    private String activityType;
+
 
     protected MMDEvent(Parcel in) {
-        eventName = in.readString();
+        id = in.readString();
+        name = in.readString();
+        description = in.readString();
+        price = in.readString();
+        resourceType = in.readString();
+        activityType = in.readString();
     }
 
     public static final Creator<MMDEvent> CREATOR = new Creator<MMDEvent>() {
@@ -35,15 +49,34 @@ public class MMDEvent implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(eventName);
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(price);
+        dest.writeString(resourceType);
+        dest.writeString(activityType);
     }
 
-    public String getEventName() {
-        return eventName;
+    @Override
+    public String display() {
+        return String.format("%s - %s (%s %s-%s)",
+                this.activityType,
+                name,
+                this.date,
+                this.startTime,
+                this.endTime
+        );
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
+//    @Override
+//    public String display() {
+//        return String.format("%s - %s (%s %s-%s)",
+//                this.activityType,
+//                name,
+//                this.date.format(DateTimeFormatter.ISO_LOCAL_DATE),
+//                this.startTime.format(DateTimeFormatter.ISO_LOCAL_TIME),
+//                this.endTime.format(DateTimeFormatter.ISO_LOCAL_TIME)
+//                );
+//    }
 }
