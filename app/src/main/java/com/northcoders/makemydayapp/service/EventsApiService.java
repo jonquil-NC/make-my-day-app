@@ -21,9 +21,9 @@ public interface EventsApiService {
     Call<List<MMDEvent>> getAllEventsByPreferences(/*@Query("date") String date,*/ @Query("type") List<String> events);
 
     @GET("geoapify/restaurants")
-    Call<List<Restaurant>>getAllRestaurantByType(@Query("types") List<String> cuisineList);
+    Call<List<Restaurant>>getAllRestaurantByType(@Query("type") List<String> cuisineList);
 
     @GET("places")
-    Call<List<Place>>getAllPlacesByType(@Query("types") List<String> placesList);
+    Call<List<Place>>getAllPlacesByType(@Query("type") List<String> placesList);
 
 }
