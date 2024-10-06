@@ -9,9 +9,24 @@
     <string name="welness_experiences">Welness Experiences</string>
     <string name="landmarks">Landmarks</string>
     <string name="bars">Bars</string>
-    <string name="sporting_events">Sporting Events</string>
-    <string name="live_events">Live Events</string>
-    <string name="concerts">Concerts</string>
+    <string name="sporting_events">Sport</string>
+    <string name="live_event">Event</string>
+    <string name="comedy">Comedy</string>
+    <string name="kids">Kids</string>
     <string name="submit">Submit</string>
     <string name="dd_mm_yyy">DD/MM/YYY</string>
+    <string name="caribbean">Caribbean</string>
+    <string name="chinese">Chinese</string>
+    <string name="indian">Indian</string>
+    <string name="japanese">Japanese</string>
+    <string name="steak">Steak</string>
+    <string name="turkish">Turkish</string>
+    <string name="thai">Thai</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="burger">Burger</string>
+    <string name="fish_and_chips">Fish and Chips</string>
+    <string name="italian">Italian</string>
+    <string name="cafe">Cafe</string>
+    <string name="pub">Pub</string>
+    <string name="world_cuisine">World Cuisine</string>
 </resources>

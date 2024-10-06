@@ -14,6 +14,8 @@ import retrofit2.Response;
 
 public class UserRepository {
 
+    private static final String TAG = UserRepository.class.getName();
+
     public Application application;
     private final MutableLiveData<User> mutableLiveData = new MutableLiveData<>();
 
@@ -30,13 +32,23 @@ public class UserRepository {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                User users = response.body();
-                mutableLiveData.setValue(users);
+                User user = response.body();
+                if(user == null) {
+                    // TODO: Remove the lines below
+                    user = new User("Mickey", "Mouse", "mickey.mouse@disney.com", null);
+                }
+                mutableLiveData.setValue(user);
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Log.e("GET request", t.getMessage());
+                // TODO: Remove the lines below
+                User user = new User("Mickey", "Mouse", "mickey.mouse@disney.com", null);
+                mutableLiveData.setValue(user);
+
+                Log.e(TAG,"GET request", t);
+                Toast.makeText(application.getApplicationContext(), "User not found returning Mickey Mouse", Toast.LENGTH_SHORT).show();
+
 
             }
         });
