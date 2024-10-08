@@ -26,6 +26,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/activities_view_background"
         tools:context=".ui.itinerary.Itinerary">
 
         <TextView
@@ -33,9 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This is your Itinerary"
+            android:fontFamily="@font/playfair_display_bold"
             android:textSize="24dp"
             android:textAlignment="center"
             android:layout_margin="5dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -43,7 +47,7 @@
             android:id="@+id/itineraryMorningActivityCard"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-
+            android:fontFamily="@font/montserrat_bold"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -61,7 +65,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Morning Activity"
-                    android:textSize="22dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="20dp"
                     android:layout_margin="10dp"
 
                     />
@@ -71,9 +76,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-
-                    android:text="@{morningActivity.display}"
-                    android:textSize="22dp" />
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="17dp"
+                    android:text="@{morningActivity.display}" />
 
 
             </LinearLayout>
@@ -98,9 +103,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Afternoon Activity"
-                    android:textSize="22dp"
                     android:layout_margin="10dp"
-
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="20dp"
                     />
 
                 <TextView
@@ -109,8 +114,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="@{afternoonActivity.display}"
-
-                    android:textSize="22dp" />
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="17dp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -131,7 +136,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Evening Activity"
-                    android:textSize="22dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="20dp"
                     android:layout_margin="10dp"
                     />
 
@@ -141,23 +147,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="@{eveningActivity.display}"
-                    android:textSize="22dp" />
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="17dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
+            android:backgroundTint="#feb06a"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="@{clickHandler::OnClickStartAgain}"
             android:text="Start Again"
             android:textAlignment="center"
-
-            android:onClick="@{clickHandler::OnClickStartAgain}"
-
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#2c2c2c"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toBottomOf="@id/itineraryEveningActivityCard"
-        />
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/itineraryHeader"
+            app:layout_constraintVertical_bias="0.992" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
