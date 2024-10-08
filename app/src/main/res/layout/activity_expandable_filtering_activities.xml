@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
+        android:background="@drawable/test"
         tools:context=".ui.activities.expandablefilter.ExpandableFilteringActivities"
         >
 
@@ -25,6 +26,8 @@
             android:textAlignment="center"
             android:textSize="30dp"
             android:text="Choose your activities"
+            android:textColor="#2c2c2c"
+            android:fontFamily="@font/playfair_display_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -35,12 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="30dp"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/white"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="2dp"
-
+            android:fontFamily="@font/montserrat_medium"
             android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorRight"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleExpandableListView"
 
@@ -53,6 +55,7 @@
             android:layout_margin="10dp"
             android:padding="2dp"
             android:text="Morning"
+            android:fontFamily="@font/montserrat_medium"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +68,7 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="#AABBCCDD"
+            android:background="#feb06a"
 
             android:padding="2dp"
 
@@ -82,6 +85,7 @@
             android:layout_width="110dp"
             android:layout_height="30dp"
             android:padding="2dp"
+            android:fontFamily="@font/montserrat_medium"
             android:layout_margin="10dp"
 
             android:text="Afternoon"
@@ -98,7 +102,7 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="#AABBCCDD"
+            android:background="#feb06a"
             android:padding="2dp"
 
             android:text="Drop in Afternoon Activity"
@@ -115,6 +119,7 @@
             android:layout_height="30dp"
             android:padding="2dp"
             android:layout_margin="10dp"
+            android:fontFamily="@font/montserrat_medium"
 
             android:text="Evening"
             android:textAlignment="center"
@@ -130,7 +135,7 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="#AABBCCDD"
+            android:background="#feb06a"
             android:padding="2dp"
 
             android:text="Drop in Evening Activity"
@@ -145,7 +150,7 @@
             android:id="@+id/submitItineraryButton"
             android:layout_width="110dp"
             android:layout_height="50dp"
-
+            android:backgroundTint="#84c885"
             android:text="Submit"
             android:layout_marginTop="20dp"
 

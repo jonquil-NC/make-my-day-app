@@ -88,8 +88,8 @@ public class ChooseActivityClickHandlers implements CompoundButton.OnCheckedChan
         }
 
 //            Get date from EditText
-        EditText dateInput = this.appCompatActivity.findViewById(R.id.dateInput);
-        String date = dateInput.getText().toString();
+//        EditText dateInput = this.appCompatActivity.findViewById(R.id.dateInput);
+//        String date = dateInput.getText().toString();
 
         Log.i(TAG, "List of activities:  " + selectedPlacesNames);
         Log.i(TAG, "List of cuisine: " + selectedCuisines);
